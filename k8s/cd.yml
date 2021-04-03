@@ -12,9 +12,9 @@ spec:
     volumeMounts:
     - name: workspace
       mountPath: /workspace
-    - name: docker-socket
-      mountPath: /var/run/docker.sock
-    workingDir: /workspace
+    # - name: docker-socket
+    #   mountPath: /var/run/docker.sock
+    # workingDir: /workspace
   - name: kubectl
     image: vfarcic/kubectl
     command: ["sleep"]
@@ -41,9 +41,9 @@ spec:
     workingDir: /workspace
   serviceAccount: build
   volumes:
-  - name: docker-socket
-    hostPath:
-      path: /var/run/docker.sock
-      type: Socket
+  # - name: docker-socket
+  #   hostPath:
+  #     path: /var/run/docker.sock
+  #     type: Socket
   - name: workspace
     emptyDir: {}
